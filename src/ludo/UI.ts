@@ -2,7 +2,7 @@ import { COORDINATES_MAP, PLAYERS, STEP_LENGTH } from "./constants";
 import { PlayerID } from "./interfaces";
 
 const resetButtonElement = document.querySelector("#reset-btn");
-const playerPieceElement = document.querySelector(".player-piece");
+const playerPieceElement = document.querySelector(".player-pieces");
 const diceButtonElement = document.querySelector("#dice-btn");
 
 const playerPieceElements: { [key in PlayerID]: NodeListOf<HTMLElement> } = {
@@ -84,6 +84,7 @@ export class UI {
   }
 
   static highlightPieces(player: PlayerID, pieces: number[]) {
+    console.log(pieces);
     pieces.forEach((piece) => {
       const pieceElement = playerPieceElements[player][piece];
       pieceElement.classList.add("highlight");

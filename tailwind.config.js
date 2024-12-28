@@ -15,6 +15,9 @@ export default {
       height: {
         3: "3%",
       },
+      duration: {
+        duration: "2000ms",
+      },
       scale: {
         140: "1.4",
       },

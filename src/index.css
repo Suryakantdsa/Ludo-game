@@ -14,7 +14,8 @@
   @apply w-3 h-3 border-2 border-solid rounded-md absolute;
   /* Keep the translation here since it's for initial positioning */
   @apply translate-x-1/2 translate-y-1/2;
-  @apply transition-all duration-1000 ease-linear z-10;
+  @apply z-10;
+  transition: all 0.2s;
   transform-origin: center;
 }
 
