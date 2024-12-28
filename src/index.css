@@ -1,0 +1,122 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.ludo {
+  @apply w-full h-[450px] bg-ludo bg-contain bg-center relative;
+}
+
+/* .player-piece {
+  @apply w-3 h-3 border-2 border-solid rounded-md absolute translate-x-1/2 translate-y-1/2 transition-all duration-1000 ease-linear  z-10 origin-center object-center;
+} */
+
+.player-piece {
+  @apply w-3 h-3 border-2 border-solid rounded-md absolute;
+  /* Keep the translation here since it's for initial positioning */
+  @apply translate-x-1/2 translate-y-1/2;
+  @apply transition-all duration-1000 ease-linear z-10;
+  transform-origin: center;
+}
+
+/* .player-piece.highlight {
+  @apply cursor-pointer border-dashed origin-center animate-spin;
+} */
+
+.player-piece.highlight {
+  @apply cursor-pointer border-dashed;
+  animation: spinInPlace 2s linear infinite;
+}
+
+@keyframes spinInPlace {
+  0% {
+    transform: translate(50%, 50%) rotate(0deg);
+  }
+  50% {
+    transform: translate(50%, 50%) scale(1.4) rotate(180deg);
+  }
+  100% {
+    transform: translate(50%, 50%) rotate(360deg);
+  }
+}
+/* 
+@keyframes spin {
+  0% {
+    @apply transform  origin-center rotate-0;
+  }
+  50% {
+    @apply transform origin-center rotate-180 scale-140;
+  }
+  100% {
+    @apply transform origin-center rotate-full;
+    transform: rotate(360deg);
+  }
+} */
+
+/* .player-piece.highlight {
+  @apply cursor-pointer border-2 border-dashed;
+  animation: borderSpin 2s linear infinite;
+} */
+
+@keyframes borderSpin {
+  0% {
+    @apply rotate-0;
+    border-color: rgba(0, 0, 0, 1);
+  }
+  50% {
+    @apply rotate-180;
+    border-color: rgba(0, 0, 0, 0.5);
+    transform: scale(1.4) rotate(180deg);
+  }
+  100% {
+    border-color: rgba(0, 0, 0, 1);
+    transform: rotate(360deg);
+  }
+}
+
+[player-id="P1"].player-piece {
+  @apply bg-blue-900;
+}
+
+[player-id="P2"].player-piece {
+  @apply bg-[#049645];
+}
+
+.player-base {
+  @apply w-[40%] h-[40%] border-[30px] border-solid absolute;
+}
+
+.player-bases [player-id="P1"].player-base {
+  @apply bottom-0 left-0 border-[#1295e7];
+}
+.player-bases [player-id="P2"].player-base {
+  @apply top-0 right-0 border-[#049645];
+}
+
+.player-base.highlight {
+  @apply animate-border-blink;
+}
+
+@keyframes border-blink {
+  50% {
+    @apply transition-all duration-200 ease-in-out border-white;
+  }
+}
+
+.btn {
+  @apply px-6 py-2 border-none cursor-pointer text-lg;
+}
+
+.btn:disabled {
+  @apply opacity-50;
+}
+
+.btn-dice {
+  @apply bg-[#009d60] text-white;
+}
+.row {
+  @apply flex justify-between mt-4;
+}
+
+.dice-value {
+  @apply text-2xl font-bold;
+}
